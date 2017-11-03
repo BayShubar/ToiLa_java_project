@@ -60,19 +60,18 @@ public class ProfileServlet extends HttpServlet {
                   city = request.getParameter("city"),
                   description = request.getParameter("description");
            
-//           Profile profile = new Profile(
-//                   0,
-//                   user,
-//                   new Service(Integer.parseInt(services_id)),
-//                   price, 
-//                   city,
-//                   description
-//           );
-
-             Profile p = new Profile(0,user, new Service(Integer.parseInt(services_id)), price, city, description);
+           Profile profile = new Profile(
+                   0,
+                   user,
+                   new Service(Integer.parseInt(services_id)),
+                   price, 
+                   city,
+                   description
+           );
            
-//           profileController.updateItem(profile);
+          profileController.updateItem(profile);
           response.sendRedirect(Paths.ROOT_PATH+"executor/Profile.jsp");
+          
         }else{
            response.sendRedirect(Paths.ROOT_PATH+"executor/Profile.jsp");
         }

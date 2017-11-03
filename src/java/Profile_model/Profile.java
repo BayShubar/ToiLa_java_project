@@ -14,6 +14,10 @@ public class Profile extends Item{
     public Profile(){
     }
     
+    public Profile(int id){
+        super(id);
+    }
+    
     public Profile(int id, User user,Service service, String price, String city, String description){
         super(id);
         this.user = user;
@@ -29,10 +33,6 @@ public class Profile extends Item{
 
     public void setUser(User user) {
         this.user = user;
-    }
-    
-    public Profile(int id){
-        super(id);
     }
 
     public Service getService() {

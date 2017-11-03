@@ -71,12 +71,9 @@ public class Profiles extends Items {
         profile.setId(this.nextId());
         
         
-        String sql = "UPDATE public.profiles" +
-        "SET services_id=2, price='1000000', city='Germany', description='Несмотря на то, что Spring не обеспечивал ' " +
-        "WHERE users_id=10;";
-//       String sql = "UPDATE public.profiles" +
-//	"SET services_id="+profile.getService().getId()+", price='"+profile.getPrice()+"', city='"+profile.getCity()+"', description='"+profile.getDescription()+"'" +
-//	"WHERE users_id = "+profile.getUser().getId()+";";
+       String sql = "UPDATE public.profiles " +
+	"SET services_id="+profile.getService().getId()+", price='"+profile.getPrice()+"', city='"+profile.getCity()+"', description='"+profile.getDescription()+"'" +
+	"WHERE users_id = "+profile.getUser().getId()+";";
        
         this.db.setData(sql);
     }

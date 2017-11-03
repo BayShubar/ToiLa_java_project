@@ -125,7 +125,7 @@
                           <%    
                               for(int i = 0; i < services.size();i++){
                           %>
-                            <option value="executor"><%= services.get(i).getType()  %></option>
+                          <option value=<%= services.get(i).getId() %> > <%= services.get(i).getType() %> </option>
                           <%
                               }
                           %>
