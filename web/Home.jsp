@@ -20,16 +20,20 @@
     
     
     <head>
+        <link rel="stylesheet" href="css/ShortProfile.css">
+        
+        
         <jsp:include page = "Parent.jsp" />
         <jsp:include page="includes/HeaderAuth.jsp" /> 
     </head>
     <body>
-        <div class="panel panel-default col-md-8 col-md-offset-2">
-            <div class="panel-heading">
+        <div class="panel panel-default col-md-12 col-md-offset-0">
+            <div class="panel-heading"  id="holderHead">
                 Services
             </div>
             <div class="panel-body" >
-                
+                <div class="container">
+                    <div class="row">
                 
                 <%
                 Profiles profilesController = new Profiles();
@@ -40,28 +44,28 @@
                 %>
                 
                 
-                
-                <div class="panel panel-info col-md-4" style="margin-right: 0px;">
-                    <div class="panel-heading">
-                       <%= profiles.get(i).getUser().getName() +" "+ profiles.get(i).getUser().getSurname() %>
-                    </div>
-                    <div class="panel-body">
-                        <h5><b>City: </b><%= profiles.get(i).getCity() %></h5>
-                        <h5><b>price: </b><%= profiles.get(i).getPrice() %>KZT</h5>
-                        <h5><b>Service: </b></b><%= profiles.get(i).getService().getType() %></h5>
-                        <h5><b>Description: </b><%= profiles.get(i).getDescription() %></h5>  
-                        <hr/>
-                         <h5><b>contact: </b><%= profiles.get(i).getUser().getTellnumber() %></h5>
-                         <hr/>
-                         <button class="btn btn-success pull-right">Order a Call</button>
+                                        
+
+                <div class="col-md-4">
+                    <div class="profile-item">
+                      <div class="pi-img-wrapper">
+                        <img src="http://iartist.kz/wp-content/uploads/2016/06/1-28.jpg" class="img-responsive">
+                      </div>
+                      <h3><a href="#"><%= profiles.get(i).getUser().getName() +" "+ 
+                                    profiles.get(i).getUser().getSurname() %></a></h3>
+                      <h5><%= profiles.get(i).getDescription() %></h5>
+                      <div class="pi-price"><%= profiles.get(i).getPrice() %>KZT</div>
+                      <a href="javascript:;" class="btn offerDeal" id="btn_default">Order</a>
+        <!--              <div class="sticker sticker-new"></div>-->
                     </div>
                 </div>
-                         
-                         
+    
                          
                          
                 
                 <%}%>
+                </div>
+            </div>     
                 
             </div>
         </div>

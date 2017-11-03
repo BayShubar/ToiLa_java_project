@@ -44,7 +44,7 @@
            %>
            
            
-            <div class="panel-heading">
+            <div class="panel-heading"  id="holderHead">
                 Create My Profile
             </div>
             <div class="panel-body" >
@@ -95,7 +95,7 @@
             %>          
                 
             
-          <div class="panel-heading">
+          <div class="panel-heading" id="holderHead">
                 Updata my Profile
             </div>
             <div class="panel-body" >
@@ -132,7 +132,7 @@
                         </select>
                   </div>
 
-                  <button type="submit" class="btn btn-success pull-right">UPDATE</button>
+                  <button type="submit" class="btn pull-right" id="btn_default">UPDATE</button>
                   
                 </form>
                 

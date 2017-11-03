@@ -19,28 +19,28 @@
         <jsp:include page = "../Parent.jsp" />
     </head>
     <body>
-        <nav class="navbar navbar-inverse">
+        <nav class="navbar navbar-inverse" id="navbar_default">
           <div class="container-fluid">
             <div class="navbar-header">
-              <a class="navbar-brand" href="#">ToiLa</a>
+              <a id="navbar_default_btn" class="navbar-brand" href="#">ToiLa</a>
             </div>
             <ul class="nav navbar-nav">
-              <li class="active"><a      href=<%=Paths.ROOT_PATH+"Home.jsp"%>    ><span class="glyphicon glyphicon-home"></span> Home</a></li>
-              <li><a href="#"><span class="glyphicon glyphicon-search"></span> Search</a></li>
+              <li><a  id="navbar_default_btn"    href=<%=Paths.ROOT_PATH+"Home.jsp"%>    ><span class="glyphicon glyphicon-home"></span> Home</a></li>
+              <li><a  id="navbar_default_btn"    href="#"><span class="glyphicon glyphicon-search"></span> Search</a></li>
               
               <% if(user.getRole().equals("executor")){ %>
-                <li><a  href=<%=Paths.ROOT_PATH+"executor/Profile.jsp"%>     ><span class="glyphicon glyphicon-user"></span> Profile</a></li>
-                <li><a href="#">Prefer Hire You <span class="badge">5</span></a></li>
-                <li><a href="#">Offer Services <span class="badge">3</span></a></li>
+                <li><a  id="navbar_default_btn" href=<%=Paths.ROOT_PATH+"executor/Profile.jsp"%>     ><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+                <li><a  id="navbar_default_btn" href="#">Prefer Hire You <span id="navbar_default" class="badge">5</span></a></li>
+                <li><a  id="navbar_default_btn" href="#">Offer Services     <span id="navbar_default" class="badge">3</span></a></li>
               <%}else if( user.getRole().equals("client") ){%>
-                <li><a href="#">Offers Condition <span class="badge">3</span></a></li>
+                <li><a  id="navbar_default_btn" href="#">Offers Condition <span id="navbar_default" class="badge">3</span></a></li>
               <%}%>
               
               
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a><%= user.getName() %></a> </li>
-              <li><a     href=<%=Paths.ROOT_PATH+"AuthServlet"%>   ><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                <li><a id="navbar_default_btn"><%= user.getName() %></a> </li>
+              <li><a   id="navbar_default_btn"  href=<%=Paths.ROOT_PATH+"AuthServlet"%>   ><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
             </ul>
           </div>
         </nav>
