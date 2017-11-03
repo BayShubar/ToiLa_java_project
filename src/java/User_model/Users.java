@@ -18,9 +18,16 @@ public class Users extends Items{
     }
 
     @Override
-    public User getItem(int id) {
-       String request = "select * from users";
-       return columCollector(request).get(0);
+    //  NOT FINISHED YET
+    public User getItem(int id) throws NoSuchFieldException{
+       String request = "SELECT * FROM public.users where id ="+id;
+       ArrayList<User> users = columCollector(request);
+        if(users.size() == 0)
+          throw new NoSuchFieldException("Inside get Item of Users class "
+                                 + "no user whit id="+Integer.toString(id));
+        else    
+         return users.get(0);
+       
     }
 
     @Override
@@ -38,6 +45,18 @@ public class Users extends Items{
         
         this.db.setData(sql);
     }
+    
+    
+        @Override
+    public void deleteItem(int id) throws NoSuchFieldException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void updateItem(Item item) throws NoSuchFieldException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
     
     /**
      * 
@@ -114,7 +133,6 @@ public class Users extends Items{
           
         return users;       
     }
-    
     
     
     

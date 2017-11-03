@@ -4,6 +4,7 @@
     Author     : Yerke
 --%>
 
+<%@page import="default_settings.Paths"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -20,8 +21,8 @@
               <li><a href="#">Home</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="../auth/Registr.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-              <li><a href="../auth/Login.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+              <li><a    href=<%=Paths.ROOT_PATH+"auth/Registr.jsp"%>   ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+              <li><a    href=<%=Paths.ROOT_PATH+"auth/Login.jsp"%>     ><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
             </ul>
           </div>
         </nav>

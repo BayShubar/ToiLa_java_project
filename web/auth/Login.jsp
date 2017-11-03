@@ -4,6 +4,7 @@
     Author     : Yerke
 --%>
 
+<%@page import="default_settings.Paths"%>
 <%@page import="User_model.User"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="database.DBUtil"%>
@@ -30,7 +31,7 @@
                 <a href="Registr.jsp" class="btn btn-success pull-right btn-xs">Registration</a>
             </div>
             <div class="panel-body">
-                <form action="../AuthServlet"  method="post">
+                <form   action=<%=Paths.ROOT_PATH + "AuthServlet"%>  method="post">
                   <input type="hidden" name="type" value="login"/>
                   <div class="form-group">
                     <label for="email">Tell number:</label>

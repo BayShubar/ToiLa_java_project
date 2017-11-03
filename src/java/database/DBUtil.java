@@ -1,19 +1,20 @@
 package database;
 
+import default_settings.DataBase;
 import java.sql.*;
 import java.util.ArrayList;
 public class DBUtil {
    private Connection conn;
-   private String url = "jdbc:postgresql://localhost:5433/toila";
-   private String user = "postgres";
-   private String password = "ralph0921";
+   private String url = "jdbc:postgresql://localhost:5433/"+DataBase.DB_NAME;
+   private String user = DataBase.DB_USER;
+   private String password = DataBase.DB_PASSWORD;
    
    public DBUtil(){
        this.connect();
    }
    
    
-   public  void connect(){
+   private void connect(){
        try{
           Class.forName("org.postgresql.Driver");
           conn = DriverManager.getConnection(url, user, password); 

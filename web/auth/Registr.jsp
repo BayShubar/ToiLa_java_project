@@ -4,6 +4,7 @@
     Author     : Yerke
 --%>
 
+<%@page import="default_settings.Paths"%>
 <%@page import="User_model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -27,7 +28,9 @@
                 <a href="Login.jsp" class="btn btn-success pull-right btn-xs">Login</a>
             </div>
             <div class="panel-body">
-                <form action="../AuthServlet"  method="post">
+                
+                
+                <form   action=<%=Paths.ROOT_PATH + "AuthServlet"%>    method="post">
                   <input type="hidden" name="type" value="registr"/>
                   
                   <div class="form-group">
@@ -60,6 +63,8 @@
                                     
                   <button type="submit" class="btn btn-success">Submit</button>
                 </form>
+                
+                
             </div>
         </div>
     </body>

@@ -13,9 +13,11 @@ public abstract class Items {
     }
     
     
-    public abstract ArrayList  getItems();
-    public abstract Item getItem(int id);
+    public abstract ArrayList  getItems()throws NoSuchFieldException;
+    public abstract Item getItem(int id)throws NoSuchFieldException;
     public abstract void setItem(Item item);
+    public abstract void deleteItem(int id)throws NoSuchFieldException;
+    public abstract void updateItem(Item item)throws NoSuchFieldException;
     
     
     // service Methods     
@@ -25,7 +27,7 @@ public abstract class Items {
     * this service method which return next id 
     * which should be assignd to next row
     * return NEXT ID if data base is not empty
-    * return 1 if EMPTY
+    * return -1 if EMPTY
     */
     protected int nextId(){
         String request = "select * from "+this.table;
