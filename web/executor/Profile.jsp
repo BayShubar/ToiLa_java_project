@@ -14,6 +14,7 @@
 <!DOCTYPE html>
 <html>
     <%
+        // ONLY EXECUTOR HAVE ACCESS TO THIS PAGE
         User user =(User)session.getAttribute("auth");
         if(user == null ){
             response.sendRedirect(Paths.ROOT_PATH+"auth/Login.jsp");

@@ -9,17 +9,40 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%
-        User user =(User)session.getAttribute("auth");
-        if(user == null){
-            response.sendRedirect(Paths.ROOT_PATH+"auth/Login.jsp");
-        }
-    %>
     <head>
         <jsp:include page = "../Parent.jsp" />
     </head>
     <body>
-        <nav class="navbar navbar-inverse" id="navbar_default">
+        
+    <%
+        User user =(User)session.getAttribute("auth");
+        if(user == null){    //IF USER UNAUTHORIZED THEN IT OUTPUT FOLLOWING HEADER
+    %>
+        
+               
+        <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#">ToiLa</a>
+            </div>
+            <ul class="nav navbar-nav">
+              <li><a href="#">Home</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a    href=<%=Paths.ROOT_PATH+"auth/Registr.jsp"%>   ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+              <li><a    href=<%=Paths.ROOT_PATH+"auth/Login.jsp"%>     ><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+          </div>
+        </nav>
+            
+            
+            
+    <%
+       }else if(user != null){   // OTHERWISE IT SHOW FOLLOWING OUTPUT
+    %>   
+
+    
+            <nav class="navbar navbar-inverse" id="navbar_default">
           <div class="container-fluid">
             <div class="navbar-header">
               <a id="navbar_default_btn" class="navbar-brand" href="#">ToiLa</a>
@@ -44,5 +67,12 @@
             </ul>
           </div>
         </nav>
+    
+    
+    <%
+       }
+    %>   
+       
+            
     </body>
 </html>

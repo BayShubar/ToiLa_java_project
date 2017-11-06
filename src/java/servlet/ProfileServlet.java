@@ -23,7 +23,9 @@ public class ProfileServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        String id = request.getParameter("id");
+        response.sendRedirect(Paths.ROOT_PATH+"public/ProfileShow.jsp?id="+id);
+        
     }
 
 

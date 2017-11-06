@@ -23,7 +23,7 @@
       <jsp:include page = "../Parent.jsp" />
     </head>
     <body>
-        <jsp:include page= "../includes/Header.jsp" />
+        <jsp:include page= "../includes/HeaderAuth.jsp" />
         <br>
         <div class="panel panel-success  col-md-4 col-md-offset-4">
             <div class="panel-heading">
