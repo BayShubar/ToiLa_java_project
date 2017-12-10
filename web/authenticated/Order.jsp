@@ -40,7 +40,8 @@
             <div class="panel-body" >
                 
                 
-                <form action=<%= Paths.ROOT_PATH + "OrderServlet" %> method="post">
+               <form action=<%= Paths.ROOT_PATH + "OrderServlet" %> method="post">
+                    <input type="hidden" name="type" value="create" >
                     <input type="hidden" name="userToSend" value=<%= userToSend.getId() %>>
                   <div class="form-group">
                     <label for="price">Date</label>

@@ -31,6 +31,13 @@ public class Profiles extends Items {
          return profiles.get(0);
     }
     
+    /**
+     * This method used to get Profile of user based on given 
+     * User id
+     * @param id
+     * @return
+     * @throws NoSuchFieldException 
+     */
      public Item getItemByUser(int id) throws NoSuchFieldException {
        String request = "SELECT * FROM public.profiles where users_id ="+id;
        ArrayList<Profile> profiles = columCollector(request);

@@ -4,9 +4,14 @@
     Author     : Yerke
 --%>
 
+<%@page import="Comment_model.Comment"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Comment_model.Comments"%>
+<%@page import="default_settings.Paths"%>
 <%@page import="Profile_model.Profile"%>
 <%@page import="Profile_model.Profiles"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="/WEB-INF/tlds/SimpleTag.tld" prefix="SimpleTag"%>
 <!DOCTYPE html>
 <html>
     <%
@@ -70,7 +75,7 @@
                         <!-- http://lorempixel.com/850/280/people/9/ -->
                     </div>
                     <div class="useravatar" >
-                        <img alt="" src=<%= imgDefined %>>
+                        <img alt="" src=${ imgDefined }>
                     </div>
                     <div class="card-info"> <span class="card-title"><%= profile.getUser().getName()+" "+
                                                                     profile.getUser().getSurname() %></span>
@@ -102,6 +107,7 @@
                 <div class="well">
                   <div class="tab-content">
                     <div class="tab-pane fade in active" id="tab1">
+                    <a href=<%=Paths.ROOT_PATH+"OrderServlet?userId="+profile.getUser().getId() %> class="btn offerDeal" id="btn_default">Order</a>
                         <h4><b>Service:</b> <%= profile.getService().getType() %> </h4>
                         <h4><b>Tell Number:</b> <%= profile.getUser().getTellnumber() %></h4>
                         <h4><b>Price:</b> <%= profile.getPrice() %>KZT</h4>
@@ -133,12 +139,40 @@
                       
                       
                     <div class="tab-pane fade in" id="tab3">
+                        <form action=<%= Paths.ROOT_PATH+"CommentServlet" %> method="post">
+                            <div class="form-group">
+                                <p>
+                                    Date: <SimpleTag:DisplayDate/>
+                                </p>
+                              <label for="">Comment:</label>
+                              <textarea type="text" class="form-control" placeholder="Comment..." name="content"></textarea>
+                            </div>
+                            <input type="hidden" name="profile_id" value=<%=profile.getId()%> />
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </form>
                         
+                        <%
+                            Comments commentsController = new Comments();
+                            ArrayList<Comment> comments = commentsController.getItemsByProfile(profile.getId());
+                            for(int i=0; i<comments.size(); i++){
+                        %>
                         
+                        <hr/>
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <%= comments.get(i).getFromUser().getName()+" "+comments.get(i).getFromUser().getSurname()%>
+                            </div>
+                            <div class="panel-body" >
+                                <%= comments.get(i).getContent() %>
+                            </div>
+                        </div>
+                        
+                        <%
+                            }
+                        %>
+
                         
                     </div>
-                      
-                      
                   </div>
                 </div>
 

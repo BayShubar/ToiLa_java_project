@@ -22,8 +22,6 @@ public class DBUtil {
        }catch(SQLException e){}
     }
    
-   
-   
     
     public  ArrayList<String> getData(String sql, String column){
         ArrayList words  = new ArrayList();

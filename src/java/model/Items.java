@@ -38,6 +38,12 @@ public abstract class Items {
             return Integer.parseInt( data.get(data.size()-1) )+1;
     }
     
+    protected int itemsNum(String sql){
+        ArrayList toCount = new ArrayList();
+        toCount = this.db.getData(sql, "id");
+        return toCount.size();
+    }
+    
     
     /**
      * 
